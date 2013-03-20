@@ -193,7 +193,7 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/i386/ -e s/sun4u/sparc64/ \
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?= arm
-CROSS_COMPILE	?= /root/1test/toolchain/arm-eabi-4.5.4-201110/bin/arm-eabi-
+CROSS_COMPILE	?= /root/1test/toolchain/android-toolchain-eabi-1302/bin/arm-eabi-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
@@ -350,8 +350,8 @@ CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 CFLAGS_MODULE   =
 AFLAGS_MODULE   =
 LDFLAGS_MODULE  =
-CFLAGS_KERNEL	= -mtune=cortex-a9 -march=armv7-a -mfpu=neon -ftree-vectorize -fno-gcse -mvectorize-with-neon-quad -fsingle-precision-constant -funswitch-loops -fprofile-correction -funsafe-math-optimizations -fipa-cp-clone -fgraphite-identity -floop-interchange -floop-strip-mine -floop-block -pipe
-AFLAGS_KERNEL	= -mtune=cortex-a9 -march=armv7-a -mfpu=neon -ftree-vectorize -fno-gcse -mvectorize-with-neon-quad -fsingle-precision-constant -funswitch-loops -fprofile-correction -funsafe-math-optimizations -fipa-cp-clone -fgraphite-identity -floop-interchange -floop-strip-mine -floop-block -pipe
+CFLAGS_KERNEL	= -mtune=cortex-a9 -march=armv7-a -mfpu=neon -ftree-vectorize -fno-gcse -mvectorize-with-neon-quad -fsingle-precision-constant -funswitch-loops -fprofile-correction -funsafe-math-optimizations -fgraphite-identity -floop-interchange -floop-strip-mine -floop-block -pipe
+AFLAGS_KERNEL	= -mtune=cortex-a9 -march=armv7-a -mfpu=neon -ftree-vectorize -fno-gcse -mvectorize-with-neon-quad -fsingle-precision-constant -funswitch-loops -fprofile-correction -funsafe-math-optimizations -fgraphite-identity -floop-interchange -floop-strip-mine -floop-block -pipe
 CFLAGS_GCOV	= -fprofile-arcs -ftest-coverage
 
 
@@ -369,9 +369,9 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
-		   -mtune=cortex-a9 -march=armv7-a -mfpu=neon -mfloat-abi=hard \
+		   -mtune=cortex-a9 -march=armv7-a -mfpu=neon \
 		   -fno-gcse -mvectorize-with-neon-quad -ftree-vectorize -fsingle-precision-constant -funswitch-loops \
-		   -fprofile-correction -funsafe-math-optimizations -fipa-cp-clone \
+		   -fprofile-correction -funsafe-math-optimizations \
 		   -fgraphite-identity -floop-interchange -floop-strip-mine \
 		   -floop-block -pipe -mthumb   
 
