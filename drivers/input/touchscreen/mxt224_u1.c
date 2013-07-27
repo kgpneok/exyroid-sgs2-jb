@@ -1764,13 +1764,13 @@ static irqreturn_t mxt224_irq_thread(int irq, void *ptr)
 				}
 			}
 		}
-#if 0
+
 #ifdef CLEAR_MEDIAN_FILTER_ERROR
 		if ((msg[0] == 18) && (data->family_id == 0x81)) {
 			if ((msg[4] & 0x5) == 0x5) {
 				printk(KERN_ERR
 				       "[TSP] median filter state error!!!\n");
-				median_err_setting();
+
 			} else if ((msg[4] & 0x4) == 0x4) {
 				copy_data->read_ta_status(&ta_status_check);
 				if ((!ta_status_check)
@@ -1780,6 +1780,7 @@ static irqreturn_t mxt224_irq_thread(int irq, void *ptr)
 				    == false)) {
 					printk(KERN_ERR
 					       "[TSP] median filter ON!!!\n");
+
 					ret =
 					    get_object_info(copy_data,
 						    TOUCH_MULTITOUCHSCREEN_T9,
@@ -1788,12 +1789,14 @@ static irqreturn_t mxt224_irq_thread(int irq, void *ptr)
 					value = 0;
 					write_mem(copy_data, obj_address + 34,
 						  1, &value);
+
 					copy_data->noise_median.median_on_flag
 						= true;
+
+
 				}
 			}
 		}
-#endif
 #endif
 		if (msg[0] > 1 && msg[0] < 12) {
 
